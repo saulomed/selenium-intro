@@ -15,6 +15,7 @@ public class ScheduledExecutorRunnable
     @PostConstruct
     public static void main(String[] args) {
 
+        System.out.println("Inicia serviço");
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
         ses.schedule(new VerificaNomeacao(), 1, TimeUnit.MINUTES);
     }

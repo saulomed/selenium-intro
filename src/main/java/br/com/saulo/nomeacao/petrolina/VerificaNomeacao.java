@@ -15,6 +15,7 @@ public class VerificaNomeacao implements Runnable
 
     private static String textoFalha = "Nenhum resultado foi encontrado para sua pesquisa.";
     public void run() {
+        System.out.println("Verificacao executando");
 //        WebDriver driver = new ChromeDriver();
 //        // Visita a página do Correios
 //        String url = "https://doem.org.br/pe/petrolina/pesquisar?keyword=LORENA+GRACIELY+NEVES+TABLADA&data_publicacao=%s";
@@ -72,6 +73,8 @@ public class VerificaNomeacao implements Runnable
         {
             email.enviaEmail("Verifiquei o diario, possivel nomeação");
         }
+
+        System.out.println("fim Verificacao");
     }
 
     private String getCurrentDay(){
