@@ -16,12 +16,16 @@ public class Mail
     public void enviaEmail(String texto) {
         Properties props = new Properties();
         /** Parâmetros de conexão com servidor Gmail */
+        props.put("mail.debug", "true");
+        props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class",
-                "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.setProperty("mail.smtp.ssl.protocols", "TLSv1.1 TLSv1.2");
+//        props.put("mail.smtp.socketFactory.port", "587");
+//        props.put("mail.smtp.socketFactory.class",
+//                "javax.net.ssl.SSLSocketFactory");
 
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {

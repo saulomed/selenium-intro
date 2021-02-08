@@ -32,7 +32,10 @@ public class VerificaNomeacao implements Runnable
         String codigoPagina = null;
         try {
 //            url = new URL("https://doem.org.br/pe/petrolina/pesquisar?keyword=LORENA+GRACIELY+NEVES+TABLADA&data_publicacao=2021-02-07");
-            url = new URL("https://doem.org.br/pe/petrolina/pesquisar?keyword=LORENA+GRACIELY+NEVES+TABLADA&data_publicacao=%s");
+            String endereco = "https://doem.org.br/pe/petrolina/pesquisar?keyword=LORENA+GRACIELY+NEVES+TABLADA&data_publicacao=%s";
+            endereco = String.format(endereco,getCurrentDay());
+            System.out.println(endereco);
+            url = new URL(endereco);
             System.setProperty("http.agent", "Chrome");
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
             connection.setRequestMethod("GET");
